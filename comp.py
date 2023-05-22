@@ -23,7 +23,7 @@ st.set_page_config(
 
 
 def main():
-    st.title('Complaint Submission')
+    st.title('VMC Complaint Submission')
 
     # Input fields
     area = st.text_input('Area')

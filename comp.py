@@ -6,10 +6,10 @@ from firebase_admin import db
 # Fetch the service account key JSON file from Firebase Console
 cred = credentials.Certificate(r"serviceAccount.json")
 
-# # Initialize the Firebase app
-# firebase_admin.initialize_app(cred, {
-#     'databaseURL': 'https://smartdustbin-nuv-default-rtdb.firebaseio.com/'
-# })
+# Initialize the Firebase app
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://smartdustbin-nuv-default-rtdb.firebaseio.com/'
+})
 
 # Reference to the root of the database
 ref = db.reference('/complaints')

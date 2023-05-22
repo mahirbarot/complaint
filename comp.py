@@ -2,11 +2,17 @@ import streamlit as st
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+from datetime import datetime
 
+current_datetime = datetime.now()
+
+# Extract date and time components
+current_date = current_datetime.date()
+current_time = current_datetime.time()
 # Fetch the service account key JSON file from Firebase Console
 cred = credentials.Certificate(r"serviceAccount.json")
 
-# Initialize the Firebase app
+# # Initialize the Firebase app
 # firebase_admin.initialize_app(cred, {
 #     'databaseURL': 'https://smartdustbin-nuv-default-rtdb.firebaseio.com/'
 # })
@@ -23,7 +29,7 @@ st.set_page_config(
 
 
 def main():
-    st.title('VMC Complaint Submission')
+    st.title('Firebase Submission')
 
     # Input fields
     area = st.text_input('Area')
@@ -38,10 +44,15 @@ def main():
             'area':area,
             'dustbin_id': dustbin_id,
             'pincode': pincode,
-            'subject': subject
+            'subject': subject,
+            'date':current_date,
+            'time': current_time
         }
         ref.child('complaints').child(area).child(dustbin_id).push(submission)
         st.success('Data submitted successfully!')
 
 if __name__ == '__main__':
     main()
+
+
+

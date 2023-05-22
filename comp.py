@@ -26,6 +26,7 @@ def main():
     st.title('Firebase Submission')
 
     # Input fields
+    area = st.text_input('Area')
     dustbin_id = st.text_input('Dustbin ID')
     pincode = st.text_input('Pincode')
     subject = st.text_input('Subject')
@@ -34,15 +35,13 @@ def main():
     if st.button('Submit'):
         # Push the data to Firebase
         submission = {
+            'area':area,
             'dustbin_id': dustbin_id,
             'pincode': pincode,
             'subject': subject
         }
-        ref.child('complaints').child(dustbin_id).push(submission)
+        ref.child('complaints').child(area).child(dustbin_id).push(submission)
         st.success('Data submitted successfully!')
 
 if __name__ == '__main__':
     main()
-
-
-

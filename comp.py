@@ -7,8 +7,8 @@ from datetime import datetime
 current_datetime = datetime.now()
 
 # Extract date and time components
-current_date = current_datetime.date()
-current_time = current_datetime.time()
+current_date = str(current_datetime.date())
+current_time = str(current_datetime.time())
 # Fetch the service account key JSON file from Firebase Console
 cred = credentials.Certificate(r"serviceAccount.json")
 

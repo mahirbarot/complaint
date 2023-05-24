@@ -33,6 +33,8 @@ def main():
 
     # Input fields
     area = st.text_input('Area')
+    area=area.lower()
+    area=area.capitalize()
     dustbin_id = st.text_input('Dustbin ID')
     pincode = st.text_input('Pincode')
     subject = st.text_input('Subject')

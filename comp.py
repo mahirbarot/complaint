@@ -21,7 +21,7 @@ cred = credentials.Certificate(r"serviceAccount.json")
 ref = db.reference('/complaints')
 
 st.set_page_config(
-        page_title="mini project",
+        page_title="complaint portal mini project",
         page_icon="house_buildings",
         layout='centered',
     )

@@ -50,7 +50,7 @@ def main():
             'date':current_date,
             'time': current_time
         }
-        ref.child('complaints').child(area).child(dustbin_id).push(submission)
+        ref.child('complaints').child(area).child(dustbin_id).set(submission)
         st.success('Data submitted successfully!')
 
 if __name__ == '__main__':
